@@ -19,6 +19,8 @@ CanHacker *canHacker = NULL;
 
 SoftwareSerial softwareSerial(SS_RX_PIN, SS_TX_PIN);
 
+void handleError(const CanHacker::ERROR error);
+
 void setup() {
     Serial.begin(115200);
     while (!Serial);
@@ -31,6 +33,10 @@ void setup() {
     
     canHacker = new CanHacker(interfaceStream, debugStream, SPI_CS_PIN);
     //canHacker->enableLoopback(); // uncomment this for loopback
+    
+    // Set custom clock for mcp2515 board (if oscillator other than 16 MHz)
+    canHacker->setClock(MCP_8MHZ);
+    
     lineReader = new CanHackerLineReader(canHacker);
     
     pinMode(INT_PIN, INPUT);
