@@ -6,7 +6,8 @@
 BOARD = nano328
 PORT = /dev/ttyUSB0
 INC_DIRS = ../common
-LIB_DIRS = ../libraries/arduino-mcp2515 ../../libraries/arduino-canhacker
+LIB_DIRS = $(ARD_HOME)/libraries/SPI \
+	   ../libraries/arduino-mcp2515 ../../libraries/arduino-canhacker
 # PROGRAMMER = pavr
 include ../arduino-makefile/Makefile
 
