@@ -9,5 +9,8 @@ INC_DIRS = ../common
 LIB_DIRS = $(ARD_HOME)/libraries/SPI \
 	   ../libraries/arduino-mcp2515 ../../libraries/arduino-canhacker
 # PROGRAMMER = pavr
+
+EXTRA_CXX_FLAGS = -std=c++11
+
 include ../arduino-makefile/Makefile
 
